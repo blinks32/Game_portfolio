@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Developer Portfolio - 8+ Years Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            margin: 40px 0;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .game-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .game-video {
+            width: 100%;
+            height: 250px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-placeholder {
+            color: #666;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .game-info {
+            padding: 30px;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .game-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .game-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .game-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .game-link {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .game-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .game-link.secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .game-link.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Game Developer</h1>
+            <p class="tagline">8+ Years Creating Engaging Gaming Experiences</p>
+            <div class="cta-buttons">
+                <a href="#games" class="btn">View My Games</a>
+                <a href="#contact" class="btn">Hire Me</a>
+            </div>
+        </header>
+
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.2rem; text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                As a seasoned game developer with 8+ years of experience, I specialize in Unity, mobile development, and educational games. 
+                I've contributed to diverse projects from <strong>Legends of Learning</strong> to <strong>Gamsole</strong>, creating engaging 
+                experiences that captivate players. My passion lies in crafting games that not only entertain but create lasting memories.
+            </p>
+        </section>
+
+        <section class="section" id="games">
+            <h2>Featured Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-video">
+                        <!-- Replace with your actual video -->
+                        <div class="video-placeholder">
+                            📹 Upload your gameplay video here<br>
+                            <small>(Replace this div with: &lt;video controls&gt;&lt;source src="your-video.mp4"&gt;&lt;/video&gt;)</small>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">Clash Royale Style Battle Game</div>
+                        <div class="game-description">
+                            Strategic PvP card battler featuring unique units, real-time combat, and competitive gameplay. 
+                            Built with advanced AI and balanced mechanics for engaging multiplayer experiences.
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Multiplayer</span>
+                            <span class="tech-tag">Mobile</span>
+                        </div>
+                        <div class="game-links">
+                            <a href="#" class="game-link">Play Game</a>
+                            <a href="#" class="game-link secondary">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-video">
+                        <div class="video-placeholder">
+                            📹 Educational Game Video<br>
+                            <small>Showcase your Legends of Learning work</small>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">Educational Math Adventure</div>
+                        <div class="game-description">
+                            Interactive learning experience developed for Legends of Learning platform. 
+                            Combines fun gameplay with educational content to make learning mathematics engaging for K-12 students.
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Educational</span>
+                            <span class="tech-tag">K-12</span>
+                            <span class="tech-tag">Interactive</span>
+                        </div>
+                        <div class="game-links">
+                            <a href="#" class="game-link">Play Game</a>
+                            <a href="#" class="game-link secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-video">
+                        <div class="video-placeholder">
+                            📹 Mobile Game Showcase<br>
+                            <small>Your top-grossing mobile game</small>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">Top-Grossing Mobile Game</div>
+                        <div class="game-description">
+                            Award-winning mobile game that achieved top-grossing status. Features innovative gameplay mechanics, 
+                            monetization strategies, and engaging progression systems that kept players coming back.
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Monetization</span>
+                        </div>
+                        <div class="game-links">
+                            <a href="#" class="game-link">Download</a>
+                            <a href="#" class="game-link secondary">Statistics</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2>Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">🎮</div>
+                    <h3>Game Development</h3>
+                    <p>Unity, Unreal Engine, C#, Game Design, Mechanics Implementation</p>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">📱</div>
+                    <h3>Mobile Development</h3>
+                    <p>iOS, Android, Cross-platform, Performance Optimization, App Store Publishing</p>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🎓</div>
+                    <h3>Educational Games</h3>
+                    <p>K-12 Learning, Interactive Content, Gamification, Assessment Integration</p>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">👥</div>
+                    <h3>Team Leadership</h3>
+                    <p>Project Management, Team Coordination, Agile Development, Mentoring</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="achievements">
+            <h2>Key Achievements</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🏆 Top-Grossing Mobile Game</h3>
+                    <p>Led development team to create award-winning mobile game that achieved top revenue status</p>
+                </div>
+                <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🎯 Educational Impact</h3>
+                    <p>Contributed to games used by thousands of students on Legends of Learning platform</p>
+                </div>
+                <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">⚡ On-Time Delivery</h3>
+                    <p>Managed development teams to consistently deliver projects on time and within budget</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Let's Work Together</h2>
+            <div class="contact-info">
+                <p>Ready to bring your game vision to life?</p>
+                <p>📧 <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p>💼 <a href="https://upwork.com/freelancers/yourprofile">Upwork Profile</a></p>
+                <p>🔗 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></p>
+                <p>📍 Based in Nigeria | Available for global projects</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
